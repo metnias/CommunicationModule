@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D4FAB9D1-124A-4038-97A5-949B2FECA957}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CommunicationModule</RootNamespace>
+    <AssemblyName>CommunicationModule</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\RWPublic\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="HOOKS-Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\RWPublic\HOOKS-Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Partiality">
+      <HintPath>..\References\RainWorld\Partiality.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\References\RainWorld\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComCtrler.cs" />
+    <Compile Include="ComMod.cs" />
+    <Compile Include="Patch\ButtonResize.cs" />
+    <Compile Include="PublicBee.cs" />
+    <Compile Include="Patch\InfoWindowPatch.cs" />
+    <Compile Include="Patch\ConversationPatch.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Patch\DialogBoxPatch.cs" />
+    <Compile Include="Patch\MenuLabelPatch.cs" />
+    <Compile Include="Patch\SandboxEditorSelectorPatch.cs" />
+    <Compile Include="Patch\SLOracleBehaviorHasMarkPatch.cs" />
+    <Compile Include="Patch\SlugcatPageContinuePatch.cs" />
+    <Compile Include="Patch\SubregionTrackerPatch.cs" />
+    <None Include=".editorconfig" />
+    <Compile Include="Patch\FFontPatch.cs" />
+    <Compile Include="Patch\FLabelPatch.cs" />
+    <Compile Include="Patch\FManager.cs" />
+    <Compile Include="Patch\InGameTranslatorPatch.cs" />
+    <Compile Include="Patch\TextPromptPatch.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /Y "$(TargetPath)" "E:\Game\Rain World\mods\$(TargetName).dll"
+copy /Y "$(TargetPath)" "E:\SteamLibrary\steamapps\common\Rain World\Mods\$(TargetName).dll"
+copy /Y "$(TargetPath)" "E:\SteamLibrary\steamapps\common\Rain World\BepInEx\plugins\$(TargetName).dll"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
