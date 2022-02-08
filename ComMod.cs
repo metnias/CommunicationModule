@@ -66,7 +66,7 @@ namespace CommunicationModule
         // Version - increase this by 1 when you upload a new version of the mod.
         // The first upload should be with version 0, the next version 1, the next version 2, etc.
         // If you ever lose track of the version you're meant to be using, ask Pastebin.
-        public int version = 17;
+        public int version = 18;
 
         // Public key in base64 - don't touch!
         public string keyE = "AQAB";
